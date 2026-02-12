@@ -1,0 +1,72 @@
+################## SUBJECTS ##################
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: sa-get-secrets
+  namespace: nitzanim
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: sa-impersonate-groups
+  namespace: nitzanim
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: sa-any-verb
+  namespace: nitzanim
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: sa-any-verb-secrets
+  namespace: nitzanim  
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: sa-any-verb-clusterrolebindings
+  namespace: nitzanim  
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: sa-any-verb-groups
+  namespace: nitzanim  
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: sa-any-resource-get
+  namespace: nitzanim  
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: sa-any-resource-impersonate
+  namespace: nitzanim  
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: sa-update-deployments
+  namespace: nitzanim 
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: sa-update-daemonsets
+  namespace: nitzanim
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: sa-create-jobs 
+  namespace: nitzanim
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: sa-exec-pods
+  namespace: nitzanim

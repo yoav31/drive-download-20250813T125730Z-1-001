@@ -1,0 +1,155 @@
+################## RoleBinding ##################
+  
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: rb-any-verb
+  namespace: nitzanim
+subjects:
+  - kind: ServiceAccount
+    name: sa-any-verb
+    apiGroup: ""
+roleRef:
+  kind: Role
+  name: risky-any-verb
+  apiGroup: ""
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: rb-any-verb-secrets
+  namespace: nitzanim
+subjects:
+  - kind: ServiceAccount
+    name: sa-any-verb-secrets
+    apiGroup: ""
+roleRef:
+  kind: Role
+  name: risky-any-verb-secrets
+  apiGroup: ""
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: rb-any-verb-clusterrolebindings
+  namespace: nitzanim
+subjects:
+  - kind: ServiceAccount
+    name: sa-any-verb-clusterrolebindings
+    apiGroup: ""
+roleRef:
+  kind: Role
+  name: risky-any-verb-clusterrolebindings
+  apiGroup: ""
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: rb-any-verb-groups
+  namespace: nitzanim
+subjects:
+  - kind: ServiceAccount
+    name: sa-any-verb-groups
+    apiGroup: ""
+roleRef:
+  kind: Role
+  name: risky-any-verb-groups
+  apiGroup: ""
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: rb-any-resource-get
+  namespace: nitzanim
+subjects:
+  - kind: ServiceAccount
+    name: sa-any-resource-get
+    apiGroup: ""
+roleRef:
+  kind: Role
+  name: risky-any-resource-get
+  apiGroup: ""
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: rb-any-resource-impersonate
+  namespace: nitzanim
+subjects:
+  - kind: ServiceAccount
+    name: sa-any-resource-impersonate
+    apiGroup: ""
+roleRef:
+  kind: Role
+  name: risky-any-resource-impersonate
+  apiGroup: ""
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: rb-update-deployments
+  namespace: nitzanim
+subjects:
+  - kind: ServiceAccount
+    name: sa-update-deployments
+    apiGroup: ""
+roleRef:
+  kind: Role
+  name: risky-update-deployments
+  apiGroup: ""
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: rb-update-daemonsets
+  namespace: nitzanim
+subjects:
+  - kind: ServiceAccount
+    name: sa-update-daemonsets
+    apiGroup: ""
+roleRef:
+  kind: Role
+  name: risky-update-daemonsets
+  apiGroup: ""
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: rb-create-jobs
+  namespace: nitzanim
+subjects:
+  - kind: ServiceAccount
+    name: sa-create-jobs
+    apiGroup: ""
+roleRef:
+  kind: Role
+  name: risky-create-jobs
+  apiGroup: ""
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: rb-exec-pods
+  namespace: nitzanim
+subjects:
+  - kind: ServiceAccount
+    name: sa-exec-pods
+    apiGroup: ""
+roleRef:
+  kind: Role
+  name: risky-exec-pods
+  apiGroup: ""
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: rb-add-rolebinding
+  namespace: nitzanim
+subjects:
+  - kind: ServiceAccount
+    name: sa-add-rolebinding
+    apiGroup: ""
+roleRef:
+  kind: Role
+  name: risky-add-rolebinding
+  apiGroup: ""

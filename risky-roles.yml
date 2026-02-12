@@ -1,0 +1,184 @@
+################## ROLES ##################
+
+# Risk: Viewing specific secrets
+# Verb: get
+# Resources: secrets
+# Example: kubectl get secrets <secret_name>
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: nitzanim
+  name: risky-get-secrets
+rules:
+- apiGroups: ["*"]
+  resources: ["secrets"]
+  verbs: ["get"]
+
+---
+# Risk: Impersonate privileged groups (like "system:masters")
+# Verb: list
+# Resources: secrets
+# Example: kubectl get secrets -o yaml
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role  
+metadata:
+  namespace: nitzanim
+  name: risky-impersonate-groups
+rules:
+- apiGroups: ["*"]
+  resources: ["groups"]
+  verbs: ["impersonate"]
+---
+######################### REGION - Any Any Roles #########################
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: nitzanim
+  name: risky-any-verb
+rules:
+- apiGroups: ["*"]
+  resources: ["*"]
+  verbs: ["*"]
+
+######################### END REGION - Any Any Roles #########################
+---
+######################### REGION - Any verb Roles #########################
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: nitzanim
+  name: risky-any-verb-secrets
+rules:
+- apiGroups: ["*"]
+  resources: ["secrets"]
+  verbs: ["*"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: nitzanim
+  name: risky-any-verb-clusterrolebindings
+rules:
+- apiGroups: ["*"]
+  resources: ["clusterrolebindings"]
+  verbs: ["*"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: nitzanim
+  name: risky-any-verb-groups
+rules:
+- apiGroups: ["*"]
+  resources: ["groups"]
+  verbs: ["*"]
+
+######################### END REGION - Any verb Roles #########################
+
+
+######################### REGION - Any resource Roles #########################
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: nitzanim
+  name: risky-any-resource-get
+rules:
+- apiGroups: ["*"]
+  resources: ["*"]
+  verbs: ["get"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: nitzanim
+  name: risky-any-resource-impersonate
+rules:
+- apiGroups: ["*"]
+  resources: ["*"]
+  verbs: ["impersonate"]
+
+######################### END REGION - Any resource Roles #########################
+
+######################### END REGION - CRITICAL Roles #########################
+
+######################### REGION - HIGH Roles #########################
+
+    
+
+# Risk: Allowing to update a malicious pod
+# Verb: update
+# Resources: deployments
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: nitzanim
+  name: risky-update-deployments
+rules:
+- apiGroups: ["*"]
+  resources: ["deployments"]
+  verbs: ["update"]
+
+
+
+# Risk: Allowing to update a malicious pod
+# Verb: update
+# Resources: daemonsets
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: nitzanim
+  name: risky-update-daemonsets
+rules:
+- apiGroups: ["*"]
+  resources: ["daemonsets"]
+  verbs: ["update"]
+
+
+# Risk: Allowing to create a malicious pod
+# Verb: create
+# Resources: jobs
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: nitzanim
+  name: risky-create-jobs
+rules:
+- apiGroups: ["*"]
+  resources: ["jobs"]
+  verbs: ["create"]
+
+
+
+# Risk: Getting shell on pods
+#   GroupA:
+#       Verb: create
+#       Resource: pods/exec
+#   GroupB:
+#       Verb: get
+#       Resource: pods
+# Example: kubectl exec podname -it sh
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: nitzanim
+  name: risky-exec-pods
+rules:
+- apiGroups: ["*"]
+  resources: ["pods/exec"]
+  verbs: ["create"]
+- apiGroups: ["*"]
+  resources: ["pods"]
+  verbs: ["get"]
+
+
+
+######################### END REGION - HIGH Roles #########################

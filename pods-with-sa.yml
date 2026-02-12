@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ubuntu-a
+  namespace: nitzanim
+spec:
+  serviceAccountName: sa-create-jobs
+  containers:
+    - name: ubuntu-a
+      image: ubuntu
+      command:
+        - sleep
+        - infinity
+           
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ubuntu-b
+  namespace: nitzanim
+spec:
+  serviceAccountName: sa-any-verb-secrets
+  containers:
+    - name: ubuntu-b
+      image: ubuntu
+      command:
+        - sleep
+        - infinity
